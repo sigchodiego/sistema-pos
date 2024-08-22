@@ -9,7 +9,7 @@ $name = isset($_POST['name']) ? limpiarCadena($_POST['name']) : '';
 $description = isset($_POST['description']) ? limpiarCadena($_POST['description']) : '';
 
 switch ($_GET['op']) {
-    case 'guardarEditar':
+    case 'guardaryeditar':
         if (!empty($idcategory)) {
             $respuesta = $category->insert($name, $description);
             echo $respuesta ? "Categoria registrada" : "La categoria no se pudo registrar";

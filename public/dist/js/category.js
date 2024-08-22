@@ -3,6 +3,10 @@ var tabla;
 function init() {
     mostrarelformulario(false);
     listar();
+
+    $('#formulario').on('submit', function (e) {
+        guardaryeditar(e);
+    });
 }
 
 function limpiar() {
@@ -25,7 +29,7 @@ function mostrarelformulario(x) {
     }
 }
 
-function cancelarFormulario() {
+function cancelarformulario() {
     limpiar();
     mostrarelformulario(false);
 }
@@ -53,6 +57,27 @@ function listar() {
         'iDisplayLength': 5,
         'order': [[0, 'desc']]
     });
+}
+
+function guardaryeditar(e) {
+    e.preventDefault();
+    $('#btnGuardar').prop('disabled', true);
+    var formData = new FormData($('#formulario')[0]);
+
+    $.ajax({
+        url: '../ajax/category.php?op=guardaryeditar',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+
+        success: function (datos) {
+            bootbox.alert(datos);
+            mostrarelformulario(false);
+            // tabla.ajax.reload();
+        }
+    });
+    limpiar();
 }
 
 init();
