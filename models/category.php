@@ -31,8 +31,8 @@ class Category {
         $sql = "SELECT * FROM categoria WHERE idcategoria='$idcategory'";
     }
 
-    public function listar (){
-        $sql = "SELECT * FROM cateogria";
+    public function listar(){
+        $sql = "SELECT * FROM categoria";
         return ejecutarConsulta($sql);
     }
 }

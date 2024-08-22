@@ -1,7 +1,7 @@
 var tabla;
 
 function init() {
-    mostrarFormulario(false);
+    mostrarelformulario(false);
     listar();
 }
 
@@ -11,27 +11,27 @@ function limpiar() {
     $('#idcategoria').val('');
 }
 
-function mostrarFormulario(x) {
+function mostrarelformulario(x) {
     limpiar();
     if (x) {
-        $('#listadoRegistros').hide();
-        $('#formularioRegistros').show();
-        $('#btnGuardar').prop('disabled', false);
-        $('#btnAgregar').hide();
+        $('#listadoregistros').hide();
+        $('#formularioregistros').show();
+        $('#btnguardar').prop('disabled', false);
+        $('#btnagregar').hide();
     } else {
-        $('#listadoRegistros').show();
-        $('#formularioRegistros').hide();
-        $('#btnAgregar').show();
+        $('#listadoregistros').show();
+        $('#formularioregistros').hide();
+        $('#btnagregar').show();
     }
 }
 
 function cancelarFormulario() {
     limpiar();
-    mostrarFormulario(false);
+    mostrarelformulario(false);
 }
 
 function listar() {
-    tabla = $('#tablaListado').dataTable({
+    tabla = $('#tablalistado').dataTable({
         'aProcessing': true,
         'aServerSide': true,
         dom: 'Bftrip',
@@ -42,10 +42,10 @@ function listar() {
             'pdf'
         ],
         'ajax': {
-            url: '../ajax/categoria.php?op=listar',
+            url: '../ajax/category.php?op=listar',
             type: 'get',
             dataType: 'json',
-            error: function () {
+            error: function (e) {
                 console.log(e.responseText);
             }
         },
