@@ -74,7 +74,7 @@ function guardaryeditar(e) {
         success: function (datos) {
             bootbox.alert(datos);
             mostrarelformulario(false);
-            // tabla.ajax.reload();
+            tabla.ajax.reload();
         }
     });
     limpiar();
