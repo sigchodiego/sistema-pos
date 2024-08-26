@@ -73,7 +73,7 @@ function guardaryeditar(e) {
         success: function (datos) {
             bootbox.alert(datos);
             mostrarelformulario(false);
-            $('#tablalistado').DataTable().ajax.reload()
+            $('#tablalistado').DataTable().ajax.reload();
         }
     });
     limpiar();
@@ -86,6 +86,28 @@ function mostrar(idcategoria) {
         $('#descripcion').val(data.descripcion);
         $('#idcategoria').val(data.idcategoria);
         mostrarelformulario(true);
+    });
+}
+
+function desactivar(idcategoria) {
+    bootbox.confirm("¿Está seguro de desactivar la categoría?", function (result) {
+        if (result) {
+            $.post('../ajax/category.php?op=desactivar', { idcategoria: idcategoria }, function (e) {
+                bootbox.alert(e);
+                $('#tablalistado').DataTable().ajax.reload();
+            })
+        }
+    });
+}
+
+function activar(idcategoria) {
+    bootbox.confirm("¿Está seguro de activar la categoría?", function (result) {
+        if (result) {
+            $.post('../ajax/category.php?op=activar', { idcategoria: idcategoria }, function (e) {
+                bootbox.alert(e);
+                $('#tablalistado').DataTable().ajax.reload();
+            })
+        }
     });
 }
 
