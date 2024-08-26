@@ -16,7 +16,6 @@ function limpiar() {
 }
 
 function mostrarelformulario(x) {
-    limpiar();
     if (x) {
         $('#listadoregistros').hide();
         $('#formularioregistros').show();
@@ -74,10 +73,22 @@ function guardaryeditar(e) {
         success: function (datos) {
             bootbox.alert(datos);
             mostrarelformulario(false);
-            tabla.ajax.reload();
+            $('#tablalistado').DataTable().ajax.reload()
         }
     });
     limpiar();
 }
 
-init();
+function mostrar(idcategoria) {
+    $.post('../ajax/category.php?op=mostrar', { idcategoria: idcategoria }, function (data, status) {
+        data = JSON.parse(data);
+        $('#nombre').val(data.nombre);
+        $('#descripcion').val(data.descripcion);
+        $('#idcategoria').val(data.idcategoria);
+        mostrarelformulario(true);
+    });
+}
+
+$(document).ready(function () {
+    init();
+});

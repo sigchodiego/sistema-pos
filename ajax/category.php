@@ -41,7 +41,7 @@ switch ($_GET['op']) {
 
         while($resp = $respuesta->fetch_object()){
             $data[] = array(
-                '0' => $resp->idcategoria,
+                '0' => "<button class='btn btn-warning' onclick='mostrar($resp->idcategoria)'><i class='fas fa-edit'></i></button>",
                 '1' => $resp->nombre,
                 '2' => $resp->descripcion,
                 '3' => $resp->condicion,

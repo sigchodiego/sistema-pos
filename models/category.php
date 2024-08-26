@@ -29,6 +29,7 @@ class Category {
 
     public function mostrar($idcategory){
         $sql = "SELECT * FROM categoria WHERE idcategoria='$idcategory'";
+        return ejecutarConsultaUnica($sql);
     }
 
     public function listar(){
