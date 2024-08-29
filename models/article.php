@@ -8,27 +8,27 @@ class Article {
 
     }
 
-    public function insert($name,$description){
-        $sql = "INSERT INTO articulo(idcategoria, codigo,nombre,stock,descripcion, imagen, condicion) VALUES ('$name','$description', 1)";
+    public function insert($idcategory,$code,$name,$stock, $description,$image){
+        $sql = "INSERT INTO articulo(idcategoria, codigo,nombre,stock,descripcion, imagen, condicion) VALUES ('$idcategory','$code','$name','$stock', '$description','$image', '1')";
         return ejecutarConsulta($sql);
     }
 
-    public function edit($idcategory,$name,$description){
-        $sql = "UPDATE articulo SET nombre='$name', descripcion='$description' WHERE idcategoria='$idcategory'";
+    public function edit($idarticle,$idcategory,$code,$name,$stock, $description,$image){
+        $sql = "UPDATE articulo SET idcategoria='$idcategory', codigo='$code', nombre='$name', stock='$stock', descripcion='$description', imagen='$image' WHERE idarticulo='$idarticle'";
         return ejecutarConsulta($sql);
     }
 
-    public function activar($idcategory){
-        $sql = "UPDATE articulo SET condicion='1' WHERE idcategoria='$idcategory'";
+    public function activar($idarticle){
+        $sql = "UPDATE articulo SET condicion='1' WHERE idarticulo='$idarticle'";
         return ejecutarConsulta($sql);
     }
-    public function desactivar($idcategory){
-        $sql = "UPDATE articulo SET condicion='0' WHERE idcategoria='$idcategory'";
+    public function desactivar($idarticle){
+        $sql = "UPDATE articulo SET condicion='0' WHERE idarticulo='$idarticle'";
         return ejecutarConsulta($sql);
     }
 
-    public function mostrar($idcategory){
-        $sql = "SELECT * FROM articulo WHERE idcategoria='$idcategory'";
+    public function mostrar($idarticle){
+        $sql = "SELECT * FROM articulo WHERE idarticulo='$idarticle'";
         return ejecutarConsultaUnica($sql);
     }
 
