@@ -26,7 +26,7 @@
                     <div class="col-md-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h1 class="box-title">Categoría <button class="btn btn-success" id="btnagregar"
+                                <h1 class="box-title">Artículos<button class="btn btn-success" id="btnagregar"
                                         onclick="mostrarelformulario(true)"><i class="fa fa-plus-circle"></i>
                                         Agregar</button>
                                 </h1>
@@ -41,7 +41,9 @@
                                     <thead>
                                         <th>Opciones</th>
                                         <th>Nombre</th>
-                                        <th>Descripción</th>
+                                        <th>Categoría</th>
+                                        <th>Stock</th>
+                                        <th>Imagen</th>
                                         <th>Estado</th>
                                     </thead>
                                     <tbody>
@@ -49,7 +51,9 @@
                                     <tfoot>
                                         <th>Opciones</th>
                                         <th>Nombre</th>
-                                        <th>Descripción</th>
+                                        <th>Categoría</th>
+                                        <th>Stock</th>
+                                        <th>Imagen</th>
                                         <th>Estado</th>
                                     </tfoot>
                                 </table>
@@ -113,8 +117,8 @@
         <?php require_once 'footer.php' ?>
         <!-- /.control-sidebar -->
     </div>
+    <script src=<?= asset('dist/js/article.js'); ?>></script>
     <!-- ./wrapper -->
-    <script src=<?= asset('dist/js/category.js'); ?>></script>
 </body>
 
 </html>
