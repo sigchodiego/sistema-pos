@@ -65,23 +65,53 @@
                                 <form name="formulario" id="formulario" method="POST">
                                     <div class="row">
                                         <div class="col-sm-6">
-
                                             <div class="form-group">
-                                                <label>nombre</label>
-                                                <input type="hidden" name="idcategoria" id="idcategoria">
-                                                <input type="text" class="form-control" name="nombre" id="nombre"
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" name="idarticulo"
+                                                    id="idarticulo" placeholder="escribir nombre" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Categoría</label>
+                                                <input type="text" class="form-control" name="idcategoria"
+                                                    id="idcategoria" placeholder="escribir descripcion" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Stock</label>
+                                                <input type="text" class="form-control" name="stock" id="stock"
                                                     placeholder="escribir nombre" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>descripcion</label>
+                                                <label>Descripcion</label>
                                                 <input type="text" class="form-control" name="descripcion"
                                                     id="descripcion" placeholder="escribir descripcion" required>
                                             </div>
                                         </div>
-
-
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Código</label>
+                                                <input type="text" class="form-control" name="codigo" id="codigo"
+                                                    placeholder="escribir nombre" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Imagen</label>
+                                                <input type="file" class="form-control" name="imagen" id="imagen"
+                                                    required>
+                                                <input type="hidden" name="imagenactual" id="imagenactual" />
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

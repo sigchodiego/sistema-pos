@@ -33,7 +33,7 @@ class Article {
     }
 
     public function listar(){
-        $sql = "SELECT * FROM articulo";
+        $sql = "SELECT a.idarticulo,a.idcategoria,c.nombre as categoria,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.condicion FROM articulo a INNER JOIN categoria c ON a.idcategoria=c.idcategoria";
         return ejecutarConsulta($sql);
     }
 }

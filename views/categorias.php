@@ -61,7 +61,6 @@
                                 <form name="formulario" id="formulario" method="POST">
                                     <div class="row">
                                         <div class="col-sm-6">
-
                                             <div class="form-group">
                                                 <label>nombre</label>
                                                 <input type="hidden" name="idcategoria" id="idcategoria">
@@ -76,8 +75,6 @@
                                                     id="descripcion" placeholder="escribir descripcion" required>
                                             </div>
                                         </div>
-
-
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
