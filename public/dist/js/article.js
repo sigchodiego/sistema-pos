@@ -10,9 +10,14 @@ function init() {
 }
 
 function limpiar() {
+    $('#idarticulo').val('');
     $('#nombre').val('');
-    $('#descripcion').val('');
     $('#idcategoria').val('');
+    $('#stock').val('');
+    $('#descripcion').val('');
+    $('#codigo').val('');
+    $('#imagen').val('');
+    $('#imagenactual').val('');
 }
 
 function mostrarelformulario(x) {
@@ -85,6 +90,16 @@ function mostrar(idcategoria) {
         $('#nombre').val(data.nombre);
         $('#descripcion').val(data.descripcion);
         $('#idcategoria').val(data.idcategoria);
+
+        $('#idarticulo').val(data.idarticulo);
+        $('#nombre').val(data.nombre);
+        $('#idcategoria').val(data.idcategoria);
+        $('#stock').val(data.stock);
+        $('#descripcion').val(data.descripcion);
+        $('#codigo').val(data.codigo);
+        $('#imagenmuestra').show();
+        $('#imagenmuestra').attr('src', '../files/articles/' + data.imagen);
+        $('#imagenactual').val(data.imagen);
         mostrarelformulario(true);
     });
 }

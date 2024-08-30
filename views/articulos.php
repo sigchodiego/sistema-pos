@@ -67,15 +67,16 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input type="text" class="form-control" name="idarticulo"
-                                                    id="idarticulo" placeholder="escribir nombre" required>
+                                                <input type="hidden" name="idarticulo" id="idarticulo" />
+                                                <input type="text" class="form-control" name="nombre" id="nombre"
+                                                    placeholder="escribir nombre" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Categoría</label>
-                                                <input type="text" class="form-control" name="idcategoria"
-                                                    id="idcategoria" placeholder="escribir descripcion" required>
+                                                <select type="text" class="form-control" name="idcategoria"
+                                                    id="idcategoria" required></select>
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +110,9 @@
                                                 <label>Imagen</label>
                                                 <input type="file" class="form-control" name="imagen" id="imagen"
                                                     required>
-                                                <input type="hidden" name="imagenactual" id="imagenactual" />
+                                                <input type="hidden" class="form-control" name="imagenactual"
+                                                    id="imagenactual" required>
+                                                <img src="" width="150px" height="120px" id="imagenactual" />
                                             </div>
                                         </div>
                                     </div>
