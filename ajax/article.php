@@ -14,12 +14,21 @@ $image = isset($_POST['imagen']) ? limpiarCadena($_POST['imagen']) : '';
 
 switch ($_GET['op']) {
     case 'guardaryeditar':
+        if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])) {
+            $imagen = $_POST['imagenactual'];
+        }else{
+            $ext = explode('.', $_FILES['imagen']['name']);
+            if($_FILES['imagen']['type'] == 'image/jpg' || $_FILES['imagen']['type'] == 'image/jpeg' || $_FILES['imagen']['type'] == 'image/png'){
+                $imagen = round(microtime(true)).'.'.end($ext);
+                move_uploaded_file($_FILES['imagen']['tmp_name'], '../files/articles/'.$imagen);
+            }
+        }
         
         if (empty($idarticle)) {
             $respuesta = $article->insert($idcategory,$code,$name,$stock, $description,$image);
             echo $respuesta ? "Artículo registrado" : "El artículo no se pudo registrar";
         } else {
-            $respuesta = $article->edit($idarticle,$idcategory,$code,$name,$stock, $description,$image);
+            $respuesta = $article->edit($idarticle,$idcategory,$code,$name,$stock, $description,$imagen);
             echo $respuesta ? "Artículo actualizado" : "El artículo no se pudo actualizar";
         }
         break;
@@ -39,6 +48,15 @@ switch ($_GET['op']) {
         echo json_encode($respuesta) ;
         break;
 
+    case 'selectCategoria':
+        require_once '../models/category.php';
+        $categoryObj = new Category();
+        $categories = $categoryObj->listar();
+        while($reg = $categories->fetch_object()){
+            echo '<option value="'.$reg->idcategoria.'">'.$reg->nombre.'</option>';
+        }
+        break;
+
     case 'listar':
         $respuesta = $article->listar();
         $data = array();
@@ -53,7 +71,7 @@ switch ($_GET['op']) {
                 '2' => $resp->categoria,
                 '3' => $resp->codigo,
                 '4' => $resp->stock,
-                '5' => "<img src='../files/articles/$resp->stock' height='50px' width='50px' />",
+                '5' => "<img src='../files/articles/$resp->imagen' height='50px' width='50px' />",
                 '6' => $resp->condicion ? "<span class='badge badge-success'>Activo</span>" : "<span class='badge badge-secondary'>Inactivo</span>",
             );
         }

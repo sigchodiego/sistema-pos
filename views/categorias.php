@@ -78,7 +78,7 @@
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <button class="btn btn-primary" type="submit" id="btnGuardar"><i
+                                        <button class="btn btn-primary" type="submit" id="btnguardar"><i
                                                 class="fa fa-save"></i> Guardar</button>
 
                                         <button class="btn btn-danger" onclick="cancelarformulario()" type="button"><i

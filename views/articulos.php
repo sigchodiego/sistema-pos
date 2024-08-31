@@ -42,6 +42,7 @@
                                         <th>Opciones</th>
                                         <th>Nombre</th>
                                         <th>Categoría</th>
+                                        <th>Código</th>
                                         <th>Stock</th>
                                         <th>Imagen</th>
                                         <th>Estado</th>
@@ -52,6 +53,7 @@
                                         <th>Opciones</th>
                                         <th>Nombre</th>
                                         <th>Categoría</th>
+                                        <th>Código</th>
                                         <th>Stock</th>
                                         <th>Imagen</th>
                                         <th>Estado</th>
@@ -69,14 +71,14 @@
                                                 <label>Nombre</label>
                                                 <input type="hidden" name="idarticulo" id="idarticulo" />
                                                 <input type="text" class="form-control" name="nombre" id="nombre"
-                                                    placeholder="escribir nombre" required>
+                                                    placeholder="escribir nombre">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Categoría</label>
                                                 <select type="text" class="form-control" name="idcategoria"
-                                                    id="idcategoria" required></select>
+                                                    id="idcategoria"></select>
                                             </div>
                                         </div>
                                     </div>
@@ -86,14 +88,14 @@
                                             <div class="form-group">
                                                 <label>Stock</label>
                                                 <input type="text" class="form-control" name="stock" id="stock"
-                                                    placeholder="escribir nombre" required>
+                                                    placeholder="escribir nombre">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Descripcion</label>
                                                 <input type="text" class="form-control" name="descripcion"
-                                                    id="descripcion" placeholder="escribir descripcion" required>
+                                                    id="descripcion" placeholder="escribir descripcion">
                                             </div>
                                         </div>
                                     </div>
@@ -102,23 +104,22 @@
                                             <div class="form-group">
                                                 <label>Código</label>
                                                 <input type="text" class="form-control" name="codigo" id="codigo"
-                                                    placeholder="escribir nombre" required>
+                                                    placeholder="escribir nombre">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Imagen</label>
-                                                <input type="file" class="form-control" name="imagen" id="imagen"
-                                                    required>
+                                                <input type="file" class="form-control" name="imagen" id="imagen">
                                                 <input type="hidden" class="form-control" name="imagenactual"
-                                                    id="imagenactual" required>
+                                                    id="imagenactual">
                                                 <img src="" width="150px" height="120px" id="imagenactual" />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <button class="btn btn-primary" type="submit" id="btnGuardar"><i
+                                        <button class="btn btn-primary" type="submit" id="btnguardar"><i
                                                 class="fa fa-save"></i> Guardar</button>
 
                                         <button class="btn btn-danger" onclick="cancelarformulario()" type="button"><i

@@ -7,6 +7,10 @@ function init() {
     $('#formulario').on('submit', function (e) {
         guardaryeditar(e);
     });
+
+    $.post('../ajax/article.php?op=selectCategoria', function (e) {
+        $('#idcategoria').html(e);
+    })
 }
 
 function limpiar() {
@@ -84,8 +88,8 @@ function guardaryeditar(e) {
     limpiar();
 }
 
-function mostrar(idcategoria) {
-    $.post('../ajax/article.php?op=mostrar', { idcategoria: idcategoria }, function (data, status) {
+function mostrar(idarticulo) {
+    $.post('../ajax/article.php?op=mostrar', { idarticulo: idarticulo }, function (data, status) {
         data = JSON.parse(data);
         $('#nombre').val(data.nombre);
         $('#descripcion').val(data.descripcion);
@@ -125,6 +129,7 @@ function activar(idcategoria) {
         }
     });
 }
+
 
 $(document).ready(function () {
     init();
