@@ -113,9 +113,13 @@
                                                 <input type="file" class="form-control" name="imagen" id="imagen">
                                                 <input type="hidden" class="form-control" name="imagenactual"
                                                     id="imagenactual">
-                                                <img src="" width="150px" height="120px" id="imagenactual" />
+                                                <img src="../public/dist/img/empty.png" width="150px" height="120px"
+                                                    id="imagenactual" />
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
+
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

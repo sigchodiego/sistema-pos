@@ -101,6 +101,7 @@ function mostrar(idarticulo) {
         $('#stock').val(data.stock);
         $('#descripcion').val(data.descripcion);
         $('#codigo').val(data.codigo);
+        $('#condicion').val(data.condicion);
         $('#imagenmuestra').show();
         $('#imagenmuestra').attr('src', '../files/articles/' + data.imagen);
         $('#imagenactual').val(data.imagen);
@@ -108,10 +109,10 @@ function mostrar(idarticulo) {
     });
 }
 
-function desactivar(idcategoria) {
+function desactivar(idarticulo) {
     bootbox.confirm("¿Está seguro de desactivar la categoría?", function (result) {
         if (result) {
-            $.post('../ajax/article.php?op=desactivar', { idcategoria: idcategoria }, function (e) {
+            $.post('../ajax/article.php?op=desactivar', { idarticulo: idarticulo }, function (e) {
                 bootbox.alert(e);
                 $('#tablalistado').DataTable().ajax.reload();
             })
@@ -119,10 +120,10 @@ function desactivar(idcategoria) {
     });
 }
 
-function activar(idcategoria) {
+function activar(idarticulo) {
     bootbox.confirm("¿Está seguro de activar la categoría?", function (result) {
         if (result) {
-            $.post('../ajax/article.php?op=activar', { idcategoria: idcategoria }, function (e) {
+            $.post('../ajax/article.php?op=activar', { idarticulo: idarticulo }, function (e) {
                 bootbox.alert(e);
                 $('#tablalistado').DataTable().ajax.reload();
             })

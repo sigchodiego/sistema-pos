@@ -66,12 +66,12 @@ switch ($_GET['op']) {
                 '0' => ($resp->condicion) ? "<button class='btn btn-warning' onclick='mostrar($resp->idarticulo)'><i class='fas fa-edit'></i></button>
                 <button class='btn btn-danger' onclick='desactivar($resp->idarticulo)'><i class='fas fa-times'></i></button>" :
                 "<button class='btn btn-warning' onclick='mostrar($resp->idarticulo)'><i class='fas fa-edit'></i></button>
-                <button class='btn btn-success' onclick='desactivar($resp->idarticulo)'><i class='fas fa-check'></i></button>",
+                <button class='btn btn-success' onclick='activar($resp->idarticulo)'><i class='fas fa-check'></i></button>",
                 '1' => $resp->nombre,
                 '2' => $resp->categoria,
                 '3' => $resp->codigo,
                 '4' => $resp->stock,
-                '5' => "<img src='../files/articles/$resp->imagen' height='50px' width='50px' />",
+                '5' => $resp->imagen !== '' ? "<img src='../files/articles/$resp->imagen' height='50px' width='50px' />" : "<img src='../public/dist/img/empty.png' height='50px' width='50px' />",
                 '6' => $resp->condicion ? "<span class='badge badge-success'>Activo</span>" : "<span class='badge badge-secondary'>Inactivo</span>",
             );
         }

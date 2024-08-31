@@ -44,7 +44,7 @@ switch ($_GET['op']) {
                 '0' => ($resp->condicion) ? "<button class='btn btn-warning' onclick='mostrar($resp->idcategoria)'><i class='fas fa-edit'></i></button>
                 <button class='btn btn-danger' onclick='desactivar($resp->idcategoria)'><i class='fas fa-times'></i></button>" :
                 "<button class='btn btn-warning' onclick='mostrar($resp->idcategoria)'><i class='fas fa-edit'></i></button>
-                <button class='btn btn-success' onclick='desactivar($resp->idcategoria)'><i class='fas fa-check'></i></button>",
+                <button class='btn btn-success' onclick='activar($resp->idcategoria)'><i class='fas fa-check'></i></button>",
                 '1' => $resp->nombre,
                 '2' => $resp->descripcion,
                 '3' => $resp->condicion ? "<span class='badge badge-success'>Activo</span>" : "<span class='badge badge-secondary'>Inactivo</span>",
