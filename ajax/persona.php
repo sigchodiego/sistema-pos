@@ -2,7 +2,7 @@
 
 require_once '../models/persona.php';
 
-$persona = new persona();
+$persona = new Persona();
 
 $idpersona = isset($_POST['idpersona']) && $_POST['idpersona'] != '' ? limpiarCadena($_POST['idpersona']) : false;
 $tipo = isset($_POST['tipo_persona']) ? limpiarCadena($_POST['tipo_persona']) : '';
