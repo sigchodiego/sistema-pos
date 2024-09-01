@@ -106,6 +106,7 @@ function mostrar(idarticulo) {
         $('#imagenmuestra').show();
         $('#imagenmuestra').attr('src', img);
         $('#imagenactual').val(data.imagen);
+        generarbarcode();
         mostrarelformulario(true);
     });
 }
@@ -130,6 +131,12 @@ function activar(idarticulo) {
             })
         }
     });
+}
+
+function generarbarcode() {
+    const codigo = $("#codigo").val();
+    JsBarcode('#barcode', codigo);
+    $("#print").show();
 }
 
 

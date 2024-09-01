@@ -105,6 +105,13 @@
                                                 <label>Código</label>
                                                 <input type="text" class="form-control" name="codigo" id="codigo"
                                                     placeholder="escribir nombre">
+                                                <br>
+                                                <button class="btn btn-success" type="button"
+                                                    onclick="generarbarcode()">Generar</button>
+                                                <div id="print">
+                                                    <svg id="barcode">
+                                                    </svg>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
