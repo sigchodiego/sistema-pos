@@ -114,7 +114,7 @@
                                                 <input type="hidden" class="form-control" name="imagenactual"
                                                     id="imagenactual">
                                                 <img src="../public/dist/img/empty.png" width="150px" height="120px"
-                                                    id="imagenactual" />
+                                                    id="imagenmuestra" />
                                             </div>
                                         </div>
                                     </div>

@@ -91,6 +91,7 @@ function guardaryeditar(e) {
 function mostrar(idarticulo) {
     $.post('../ajax/article.php?op=mostrar', { idarticulo: idarticulo }, function (data, status) {
         data = JSON.parse(data);
+        let img = data.imagen == '' ? "../public/dist/img/empty.png" : '../files/articles/' + data.imagen;
         $('#nombre').val(data.nombre);
         $('#descripcion').val(data.descripcion);
         $('#idcategoria').val(data.idcategoria);
@@ -103,7 +104,7 @@ function mostrar(idarticulo) {
         $('#codigo').val(data.codigo);
         $('#condicion').val(data.condicion);
         $('#imagenmuestra').show();
-        $('#imagenmuestra').attr('src', '../files/articles/' + data.imagen);
+        $('#imagenmuestra').attr('src', img);
         $('#imagenactual').val(data.imagen);
         mostrarelformulario(true);
     });
