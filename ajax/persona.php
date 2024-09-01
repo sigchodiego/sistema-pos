@@ -10,7 +10,7 @@ $nombre = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : '';
 $tipo_documento = isset($_POST['tipo_documento']) ? limpiarCadena($_POST['tipo_documento']) : '';
 $num_documento = isset($_POST['num_documento']) ? limpiarCadena($_POST['num_documento']) : '';
 $direccion = isset($_POST['direccion']) ? limpiarCadena($_POST['direccion']) : '';
-$telefono = isset($_POST['telefono$telefono']) ? limpiarCadena($_POST['telefono$telefono']) : '';
+$telefono = isset($_POST['telefono']) ? limpiarCadena($_POST['telefono']) : '';
 $email = isset($_POST['email']) ? limpiarCadena($_POST['email']) : '';
 
 switch ($_GET['op']) {
@@ -36,7 +36,7 @@ switch ($_GET['op']) {
         break;
 
     case 'listarp':
-        $respuesta = $persona->listar();
+        $respuesta = $persona->listarp();
         $data = array();
 
         while($resp = $respuesta->fetch_object()){
@@ -45,7 +45,7 @@ switch ($_GET['op']) {
                 <button class='btn btn-danger' onclick='eliminar($resp->idpersona)'><i class='fas fa-times'></i></button>",
                 '1' => $resp->nombre,
                 '2' => $resp->tipo_documento,
-                '3' => $resp->num_document,
+                '3' => $resp->num_documento,
                 '4' => $resp->telefono,
                 '5' => $resp->email
             );
@@ -63,7 +63,7 @@ switch ($_GET['op']) {
         break;
     
     case 'listarc':
-        $respuesta = $persona->listar();
+        $respuesta = $persona->listarc();
         $data = array();
 
         while($resp = $respuesta->fetch_object()){

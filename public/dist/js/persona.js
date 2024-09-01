@@ -16,6 +16,8 @@ function init() {
 function limpiar() {
     $('#idpersona').val('');
     $('#nombre').val('');
+    $('#tipo_documento').val('');
+    $('#num_documento').val('');
     $('#direccion').val('');
     $('#telefono').val('');
     $('#email').val('');
@@ -51,7 +53,7 @@ function listar() {
             'pdf'
         ],
         'ajax': {
-            url: '../ajax/persona.php?op=listar',
+            url: '../ajax/persona.php?op=listarp',
             type: 'get',
             dataType: 'json',
             error: function (e) {
@@ -91,6 +93,8 @@ function mostrar(idpersona) {
         let img = data.imagen == '' ? "../public/dist/img/empty.png" : '../files/personas/' + data.imagen;
         $('#idpersona').val(data.idpersona);
         $('#nombre').val(data.nombre);
+        $('#tipo_documento').val(data.tipo_documento);
+        $('#num_documento').val(data.num_documento);
         $('#direccion').val(data.direccion);
         $('#telefono').val(data.telefono);
         $('#email').val(data.email);
