@@ -27,7 +27,7 @@ switch ($_GET['op']) {
 
     case 'eliminar':
         $respuesta = $persona->eliminar($idpersona);
-        echo $respuesta ? "persona desactivada" : "La persona no se pudo desactivar";
+        echo $respuesta ? "persona eliminada" : "La persona no se pudo eliminar";
         break;
 
     case 'mostrar':

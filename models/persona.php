@@ -2,7 +2,7 @@
 
 require_once '../config/conexion.php';
 
-class Article {
+class Persona {
     public function __construct()
     {
 
