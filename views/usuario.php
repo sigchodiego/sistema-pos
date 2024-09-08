@@ -206,7 +206,7 @@
         <?php require_once 'footer.php' ?>
         <!-- /.control-sidebar -->
     </div>
-    <script src=<?= asset('dist/js/article.js'); ?>></script>
+    <script src=<?= asset('dist/js/usuario.js'); ?>></script>
     <!-- ./wrapper -->
 </body>
 
