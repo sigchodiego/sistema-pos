@@ -52,6 +52,31 @@ switch ($_GET['op']) {
         echo json_encode($respuesta) ;
         break;
 
+    case 'permisos':
+        require_once '../models/permisos.php';
+        require_once '../models/usuario.php';
+
+        $permiso = new Permiso();
+        $usuario = new Usuario();
+
+        $res = $permiso->listar();
+        $id = $_GET['id'];
+
+        $marcados =$usuario->listarmarcados($id);
+
+        $valores = array();
+
+        while ($per = $marcados->fetch_object()) {
+            array_push($valores, $per->idpermiso);
+        }
+
+        while ($reg = $res->fetch_object()) {
+            $sw = in_array($reg->idpermiso, $valores) ? 'checked' : '';
+            echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'" /> '.$reg->nomobre.' </li>'
+        }
+
+        break;
+
     case 'listar':
         $respuesta = $usuario->listar();
         $data = array();
