@@ -8,14 +8,39 @@ class Usuario {
 
     }
 
-    public function insert($nombre,$tipo_documento,$num_documento,$direccion, $telefono, $email, $cargo, $login,$clave,$imagen){
-        $sql = "INSERT INTO usuario(nombre,tipo_documento,num_documento,direccion, telefono, email, cargo, login, clave, imagen) VALUES ('$nombre','$tipo_documento','$num_documento','$direccion', '$telefono', '$email', '$cargo', '$login','$clave','$imagen')";
-        return ejecutarConsulta($sql);
+    public function insert($nombre,$tipo_documento,$num_documento,$direccion, $telefono, $email, $cargo, $login,$clave,$imagen,$permisos){
+        $sql = "INSERT INTO usuario(nombre,tipo_documento,num_documento,direccion, telefono, email, cargo, login, clave, imagen,condicion) VALUES ('$nombre','$tipo_documento','$num_documento','$direccion', '$telefono', '$email', '$cargo', '$login','$clave','$imagen', '1')";
+        
+        $idusuarionew = ejecutarConsulta_retornarID($sql);
+        
+        $num_elementos = 0;
+        $sw = true;
+
+        while ($num_elementos < count($permisos)) {
+            $sql_detalle = "INSERT INTO usuario_permiso(idusuario, idpermiso) VALUES('$idusuarionew','$permisos[$num_elementos]')";
+            ejecutarConsulta($sql) or $sw = false;
+            $num_elementos++;
+        }
+
+        return $sw;
     }
 
-    public function edit($idusuario,$nombre,$tipo_documento,$num_documento,$direccion, $telefono, $email, $cargo, $login,$clave,$imagen){
+    public function edit($idusuario,$nombre,$tipo_documento,$num_documento,$direccion, $telefono, $email, $cargo, $login,$clave,$imagen,$permisos){
         $sql = "UPDATE usuario SET idusuario='$idusuario',nombre='$nombre',tipo_documento='$tipo_documento',num_documento='$num_documento',direccion='$direccion', telefono='$telefono', email='$email', cargo='$cargo',login='$login', clave='$clave', imagen='$imagen' WHERE idusuario='$idusuario'";
-        return ejecutarConsulta($sql);
+        ejecutarConsulta($sql);
+        $sqldel = "DELETE FROM usuario_permiso WHERE idusuario = '$idusuario'";
+        ejecutarConsulta($sqldel);
+
+        $num_elementos = 0;
+        $sw = true;
+
+        while ($num_elementos < count($permisos)) {
+            $sql_detalle = "INSERT INTO usuario_permiso(idusuario, idpermiso) VALUES('$idusuario','$permisos[$num_elementos]')";
+            ejecutarConsulta($sql) or $sw = false;
+            $num_elementos++;
+        }
+
+        return $sw;
     }
 
     public function desactivar($idusuario){
