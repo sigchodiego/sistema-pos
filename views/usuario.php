@@ -42,6 +42,7 @@
                                         <th>Opciones</th>
                                         <th>Nombre</th>
                                         <th>Documento</th>
+                                        <th>Número</th>
                                         <th>Teléfono</th>
                                         <th>Email</th>
                                         <th>Login</th>
@@ -54,6 +55,7 @@
                                         <th>Opciones</th>
                                         <th>Nombre</th>
                                         <th>Documento</th>
+                                        <th>Número</th>
                                         <th>Teléfono</th>
                                         <th>Email</th>
                                         <th>Login</th>
@@ -79,8 +81,8 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Tipo documento</label>
-                                                <select type="text" class="form-control" name="tipo-documento"
-                                                    id="tipo-documento">
+                                                <select type="text" class="form-control" name="tipo_documento"
+                                                    id="tipo_documento">
                                                     <option value="DNI">DNI</option>
                                                     <option value="RUC">RUC</option>
                                                     <option value="CEDULA">CEDULA</option>

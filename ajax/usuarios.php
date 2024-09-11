@@ -28,6 +28,8 @@ switch ($_GET['op']) {
             }
         }
 
+        $clave = hash("SHA256",$clave);
+
         if (empty($idusuario)) {
             $respuesta = $usuario->insert($nombre,$tipo_documento,$num_documento,$direccion, $telefono, $email, $cargo, $login,$clave,$imagen, $_POST['permiso']);
             echo $respuesta ? "usuario registrado" : "El usuario no se pudo registrar";
@@ -42,9 +44,9 @@ switch ($_GET['op']) {
         echo $respuesta ? "usuario desactivado" : "La usuario no se pudo desactivar";
         break;
 
-    case 'actovar':
+    case 'activar':
         $respuesta = $usuario->activar($idusuario);
-        echo $respuesta ? "usuario activar" : "El usuario no se pudo activar";
+        echo $respuesta ? "usuario activado" : "El usuario no se pudo activar";
         break;
 
     case 'mostrar':
@@ -56,7 +58,7 @@ switch ($_GET['op']) {
         require_once '../models/permisos.php';
         require_once '../models/usuario.php';
 
-        $permiso = new Permiso();
+        $permiso = new Permisos();
         $usuario = new Usuario();
 
         $res = $permiso->listar();
@@ -72,7 +74,7 @@ switch ($_GET['op']) {
 
         while ($reg = $res->fetch_object()) {
             $sw = in_array($reg->idpermiso, $valores) ? 'checked' : '';
-            echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'" /> '.$reg->nomobre.' </li>'
+            echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'" /> '.$reg->nombre.' </li>';
         }
 
         break;
@@ -82,17 +84,18 @@ switch ($_GET['op']) {
         $data = array();
 
         while($resp = $respuesta->fetch_object()){
+            $img = file_exists("../files/users/$resp->imagen") && $resp->imagen != "" ? "../files/users/$resp->imagen" : "../public/dist/img/empty.png";
             $data[] = array(
                 '0' => ($resp->condicion) ? "<button class='btn btn-warning' onclick='mostrar($resp->idusuario)'><i class='fas fa-edit'></i></button>
                 <button class='btn btn-danger' onclick='desactivar($resp->idusuario)'><i class='fas fa-times'></i></button>" : "<button class='btn btn-warning' onclick='mostrar($resp->idusuario)'><i class='fas fa-edit'></i></button>
-                <button class='btn btn-primary' onclick='activar($resp->idusuario)'><i class='fas fa-times'></i></button>",
+                <button class='btn btn-primary' onclick='activar($resp->idusuario)'><i class='fas fa-check'></i></button>",
                 '1' => $resp->nombre,
                 '2' => $resp->tipo_documento,
                 '3' => $resp->num_documento,
                 '4' => $resp->telefono,
                 '5' => $resp->email,
                 '6' => $resp->login,
-                '7' => "<img src='../files/users'".$resp->imagen."' height='50px' width='50px' />",
+                '7' => "<img src='".$img."' height='50px' width='50px' />",
                 '8' => $resp->condicion ? "<span class='badge badge-success'>Activo</span>" : "<span class='badge badge-secondary'>Inactivo</span>",
             );
         }
