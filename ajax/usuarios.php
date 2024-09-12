@@ -53,6 +53,11 @@ switch ($_GET['op']) {
         $respuesta = $usuario->mostrar($idusuario);
         echo json_encode($respuesta) ;
         break;
+    
+    case 'verificar':
+        $respuesta = $usuario->mostrar($idusuario);
+        echo json_encode($respuesta) ;
+        break;
 
     case 'permisos':
         require_once '../models/permisos.php';

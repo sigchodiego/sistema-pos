@@ -26,7 +26,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-                <form method="post">
+                <form id="formulariologin" method="post">
                     <div class="input-group mb-3">
                         <input type="email" name="login" id="login" class="form-control" placeholder="Email">
                         <div class="input-group-append">
