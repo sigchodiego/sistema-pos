@@ -55,8 +55,32 @@ switch ($_GET['op']) {
         break;
     
     case 'verificar':
-        $respuesta = $usuario->mostrar($idusuario);
-        echo json_encode($respuesta) ;
+        $login = $_POST['login'];
+        $clave = $_POST['clave'];
+
+        $hash = hash("SHA256",$clave);
+
+        $respuesta = $usuario->verificar($login,$hash);
+        $fetch = $respuesta->fetch_object();
+
+        if(isset($fetch)){
+            $_SESSION['idusuario'] = $fetch->idusuario;
+            $_SESSION['nombre'] = $fetch->nombre;
+            $_SESSION['imagen'] = $fetch->imagen;
+            $_SESSION['login'] = $fetch->login;
+
+            $marcados = $usuario->listarmarcados($fetch->idusuario);
+
+            $valores = [];
+
+            while($per = $marcados->fetch_object()){
+                array_push($valores, $per->idpermiso);
+            }
+
+        }
+
+        echo json_encode($fetch);
+
         break;
 
     case 'permisos':

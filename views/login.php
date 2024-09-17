@@ -28,7 +28,7 @@
                 <p class="login-box-msg">Sign in to start your session</p>
                 <form id="formulariologin" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" name="login" id="login" class="form-control" placeholder="Email">
+                        <input type="text" name="login" id="login" class="form-control" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -36,8 +36,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" id="password" class="form-control"
-                            placeholder="Password">
+                        <input type="password" name="clave" id="clave" class="form-control" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -46,7 +45,7 @@
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                         </div>
 
                     </div>
@@ -62,15 +61,16 @@
 
         </div>
     </div>
-
-
-    <script src=<?= asset('dist/js/login.js') ?>></script>
+    <?php require_once 'footer.php' ?>
 
     <script src=<?= asset('plugins/jquery/jquery.min.js') ?>></script>
 
-    <script src=<?= asset('plugns/bootstrap/js/bootstrap.bundle.min.js') ?>></script>
+    <script src=<?= asset('dist/js/login.js') ?>></script>
+
+    <script src=<?= asset('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>></script>
 
     <script src=<?= asset('dist/js/adminlte.min.js?v=3.2.0') ?>></script>
+
 </body>
 
 </html>

@@ -67,4 +67,19 @@ class Usuario {
         $sql = "SELECT * FROM usuario_permiso WHERE idusuario='$idusuario'";
         return ejecutarConsulta($sql);
     }
+
+    public function verificar($login, $clave){
+        $sql = "
+        SELECT *
+        FROM 
+            usuario 
+        WHERE 
+            login = '$login'
+        AND
+            clave = '$clave' 
+        AND 
+            condicion='1'";
+        return ejecutarConsulta($sql);
+    }
+
 }
