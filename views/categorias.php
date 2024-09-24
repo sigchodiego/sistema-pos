@@ -1,7 +1,15 @@
+<?php
+ob_start();
+session_start();
+
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.php');
+} else {
+    require_once 'header.php';
+    if ($_SESSION['almacen'] == 1 ) {
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-<?php require_once 'header.php' ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -115,3 +123,9 @@
 </body>
 
 </html>
+
+<?php
+    }
+}
+ob_end_flush();
+?>

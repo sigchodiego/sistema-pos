@@ -7,8 +7,8 @@ $("#formulariologin").on("submit", function (e) {
         { "login": login, "clave": clave },
         function (data) {
             data = JSON.parse(data);
-            // console.log(data);
-            if (data != "null") {
+            console.log(data);
+            if (data != null) {
                 $(location).attr("href", "categorias.php");
             } else {
                 bootbox.alert("Usuario y o password incorrectos");

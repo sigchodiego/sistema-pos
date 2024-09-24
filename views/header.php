@@ -1,6 +1,6 @@
 <?php
 require_once '../config/global.php';
-session_start();
+// session_start();
 ?>
 
 <head>

@@ -101,6 +101,14 @@ switch ($_GET['op']) {
             array_push($valores, $per->idpermiso);
         }
 
+        in_array(1,$valores) ? $_SESSION['escritorio'] = 1 : $_SESSION['escritorio'] = 0;
+        in_array(2,$valores) ? $_SESSION['almacen'] = 1 : $_SESSION['almacen'] = 0;
+        in_array(3,$valores) ? $_SESSION['compras'] = 1 : $_SESSION['compras'] = 0;
+        in_array(4,$valores) ? $_SESSION['ventas'] = 1 : $_SESSION['ventas'] = 0;
+        in_array(5,$valores) ? $_SESSION['acceso'] = 1 : $_SESSION['acceso'] = 0;
+        in_array(6,$valores) ? $_SESSION['consultac'] = 1 : $_SESSION['consultac'] = 0;
+        in_array(7,$valores) ? $_SESSION['consultav'] = 1 : $_SESSION['consultav'] = 0;
+
         while ($reg = $res->fetch_object()) {
             $sw = in_array($reg->idpermiso, $valores) ? 'checked' : '';
             echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'" /> '.$reg->nombre.' </li>';
